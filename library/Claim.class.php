@@ -40,7 +40,7 @@ class Claim {
 	var $copay; // total of copays from the billing table
 	//Start Change : Add PCP Inforamtion on Bill Sheet -Sanjeewa
 	var $pcp; // row from users table (primary care provider)
-	//End Change : Add PCP Inforamtion on Bill Sheet 
+	//End Change : Add PCP Inforamtion on Bill Sheets  
 	function loadPayerInfo(& $billrow) {
 		global $sl_err;
 		$encounter_date = substr($this->encounter['date'], 0, 10);

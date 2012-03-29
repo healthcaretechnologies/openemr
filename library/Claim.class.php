@@ -246,8 +246,9 @@ class Claim {
     $this->supervisor_numbers = sqlQuery($sql);
     if (!$this->supervisor_numbers) $this->supervisor_numbers = array();
     
+    //Start Change : Add PCP Inforamtion on Bill Sheet -Sanjeewa
     $pcpID = $this->patient_data['pcpID'];
-    if(isSet($pcpID))
+    if(empty($pcpID) || $pcpID =='NULL' )
     {
     	$this->pcp='';
     }
@@ -256,7 +257,7 @@ class Claim {
     	$sqlPcp = "SELECT * FROM users WHERE id = '$pcpID' ORDER BY id LIMIT 1";
   		$this->pcp = sqlQuery($sqlPcp);
     }
-    
+    //End Change : Add PCP Inforamtion on Bill Sheet -Sanjeewa
 
   } // end constructor
 
@@ -940,7 +941,7 @@ class Claim {
   function cptCode($prockey) {
     return x12clean(trim($this->procs[$prockey]['code']));
   }
-
+  //Start Change : Add PCP Inforamtion on Bill Sheet -Sanjeewa
   //Patients PCP Last Name
   function pcpLastName() {
     return empty($this->pcp)?'':$this->pcp['lname'];
@@ -953,6 +954,7 @@ class Claim {
   function pcpMiddleName() {
     return  empty($this->pcp)?'':$this->pcp['mname'];
   }
+  //End Change : Add PCP Inforamtion on Bill Sheet -Sanjeewa
 
   function cptModifier($prockey) {
     // Split on the colon or space and clean each modifier

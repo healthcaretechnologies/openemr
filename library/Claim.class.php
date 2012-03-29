@@ -252,10 +252,19 @@ class Claim {
 			$this->supervisor_numbers = array ();
 		//Start Change : Add PCP Inforamtion on Bill Sheet -Sanjeewa
 		// Load PCP Name from users table
-		$sql = "SELECT * FROM users WHERE " .
-		"id = '{$this->patient_data("pcpID")}' " .
-		"ORDER BY id LIMIT 1";
-		$this->pcp = sqlQuery($sql);
+		$pcpID=$this->patient_data("pcpID");
+		if (isSet($pcpID))
+		{
+//			$sql = "SELECT * FROM users WHERE " .
+//			"id = '{$pcpID}' " .
+//			"ORDER BY id LIMIT 1";
+//			$this->pcp = sqlQuery($sql);
+			$this->pcp=NULL;
+		}
+		else
+		{
+			$this->pcp=NULL;
+		}
 		//End Change : Add PCP Inforamtion on Bill Sheet 
 	} // end constructor
 
@@ -974,15 +983,36 @@ class Claim {
 	//Start Change : Add PCP Inforamtion on Bill Sheet -Sanjeewa
 	//Patients PCP Last Name
 	function pcpLastName() {
-		return x12clean(trim($this->pcp['lname']));
+		if(isSet($this->pcp))		
+		{
+			return x12clean(trim($this->pcp['lname']));
+		}
+		else
+		{
+			return "";
+		}
 	}
-	//Patients PCP Last Name
+	//Patients PCP First Name
 	function pcpFirstName() {
-		return x12clean(trim($this->pcp['fname']));
+				if(isSet($this->pcp))		
+		{
+			return x12clean(trim($this->pcp['fname']));
+		}
+		else
+		{
+			return "";
+		}
 	}
 	//Patients PCP Middle Name
 	function pcpMiddleName() {
-		return x12clean(trim($this->pcp['mname']));
+				if(isSet($this->pcp))		
+		{
+			return x12clean(trim($this->pcp['mname']));
+		}
+		else
+		{
+			return "";
+		}
 	}
 	//End Change : Add PCP Inforamtion on Bill Sheet -Sanjeewa
 

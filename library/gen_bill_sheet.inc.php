@@ -224,12 +224,12 @@ function gen_bill_page($pid, $encounter, &$log, &$claim)
 	put_bill($pl++, 50, 41, 'Reason: '.$claim->reasonForVist());
 	$refPrv=$claim->referrerLastName().', '.$claim->referrerFirstName().' '.$claim->referrerMiddleName();
 	if(strlen($refPrv)<=3)	$refPrv='';
-	put_bill($pl, 6, 41, 'Ref Prv: '.$refPrv);
+	put_bill($pl++, 6, 41, 'Ref Prv: '.$refPrv);
 	
 	//Start Change : Add PCP Inforamtion on Bill Sheet -Sanjeewa
-//	$priPrv=$claim->pcpLastName().', '.$claim->pcpFirstName().' '.$claim->pcpMiddleName();
-//	if(strlen($priPrv)<=3)	$priPrv='';
-	put_bill($pl, 6, 41, 'Pri Prv: '.$refPrv);
+	$priPrv=$claim->pcpLastName().', '.$claim->pcpFirstName().' '.$claim->pcpMiddleName();
+	if(strlen($priPrv)<=3)	$priPrv='';
+	put_bill($pl, 6, 41, 'Pri Prv: '.$priPrv);
 	//End Change : Add PCP Inforamtion on Bill Sheet 
 	
 	$dateOfInjury=substr($claim->onsetDate(),0,4).'-'.substr($claim->onsetDate(),4,2).'-'.substr($claim->onsetDate(),6);

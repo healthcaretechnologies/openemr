@@ -151,6 +151,7 @@ function set_button_states() {
 <?php } ?>
   f.bn_process_hcfa.disabled    = !can_generate;
   f.bn_hcfa_txt_file.disabled   = !can_generate;
+  f.bn_bill_sheet_file.disabled   = !can_generate;
   // f.bn_electronic_file.disabled = !can_bill;
   f.bn_reopen.disabled          = !can_bill;
 <?php } ?>
@@ -536,7 +537,12 @@ if(!isset($_REQUEST['mode']))//default case
 <input type="submit" class="subbtn" style="width:175px;" name="bn_hcfa_txt_file" value="<?php xl('Generate CMS 1500 TEXT','e')?>"
  title="<?php xl('Making batch text files for uploading to Clearing House and will mark as billed', 'e')?>"
  onclick="MarkAsCleared(3)">
+ 
+ <input type="submit" class="subbtn" style="width:175px;" name="bn_bill_sheet_file" value="<?php xl('Generate Bill Sheet','e')?>"
+ title="<?php xl('Generate Bill Sheet for billing comany', 'e')?>"
+ onclick="MarkAsCleared(3)">
 <input type="submit" class="subbtn" name="bn_mark" value="<?php xl('Mark as Cleared','e')?>" title="<?php xl('Post to accounting and mark as billed','e')?>">
+
 <input type="submit" class="subbtn" name="bn_reopen" value="<?php xl('Re-Open','e')?>" title="<?php xl('Mark as not billed','e')?>">
 <!--
 <input type="submit" class="subbtn" name="bn_electronic_file" value="Make Electronic Batch &amp; Clear" title="<?php xl('Download billing file, post to accounting and mark as billed','e')?>">

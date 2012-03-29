@@ -1,0 +1,26 @@
+CREATE TABLE IF NOT EXISTS `form_current_functional_status` (
+id bigint(20) NOT NULL auto_increment,
+date datetime default NULL,
+pid bigint(20) default NULL,
+user varchar(255) default NULL,
+groupname varchar(255) default NULL,
+authorized tinyint(4) default NULL,
+activity tinyint(4) default NULL,
+eating_or_feeding TEXT,
+diet TEXT,
+feeding_tube TEXT,
+upper_bathing TEXT,
+lower_bathing TEXT,
+upper_dressing TEXT,
+lower_dressing TEXT,
+transfers TEXT,
+ambulate TEXT,
+any_device_used TEXT,
+bladder TEXT,
+bladder_program TEXT,
+other_bladder TEXT,
+bowel TEXT,
+bowel_program TEXT,
+
+PRIMARY KEY (id)
+) TYPE=MyISAM;

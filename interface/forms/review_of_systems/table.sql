@@ -1,0 +1,26 @@
+CREATE TABLE IF NOT EXISTS `form_review_of_systems` (
+id bigint(20) NOT NULL auto_increment,
+date datetime default NULL,
+pid bigint(20) default NULL,
+user varchar(255) default NULL,
+groupname varchar(255) default NULL,
+authorized tinyint(4) default NULL,
+activity tinyint(4) default NULL,
+constitutional TEXT,
+eyes TEXT,
+ent TEXT,
+heart TEXT,
+respiratory TEXT,
+gi TEXT,
+gu TEXT,
+skin TEXT,
+musculoskeletal TEXT,
+neurological TEXT,
+psychiatric TEXT,
+endocrine TEXT,
+heme_lymph TEXT,
+immunologic TEXT,
+infections_at TEXT,
+
+PRIMARY KEY (id)
+) TYPE=MyISAM;

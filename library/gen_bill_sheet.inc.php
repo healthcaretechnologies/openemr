@@ -113,7 +113,7 @@ function gen_bill_page($pid, $encounter, &$log, &$claim)
 	$bill_curr_line = 1;
 	$bill_curr_col = 1;
 //	$bill_max_lines = 61;
-//	$bill_curr_page=1;
+	$bill_curr_page=1;
 	$pl = 1;
 	$pg = 1;
 

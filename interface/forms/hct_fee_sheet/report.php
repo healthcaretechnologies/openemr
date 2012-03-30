@@ -4,7 +4,7 @@ include_once($GLOBALS["srcdir"]."/api.inc");
 
 function fee_sheet_report( $pid, $encounter, $cols, $id) {
 	$count = 0;
-	$data = formFetch("form_patient_fee_sheet", $id);
+	$data = formFetch("form_hct_fee_sheet", $id);
 	if ($data) {
 		print "<table><tr>";
 		foreach($data as $key => $value) {

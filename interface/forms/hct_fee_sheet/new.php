@@ -665,7 +665,7 @@ function setJustify(seljust) {
 </head>
 
 <body class="body_top">
-<form method="post" action="<?php echo $rootdir; ?>/forms/patient_fee_sheet/new.php"
+<form method="post" action="<?php echo $rootdir; ?>/forms/hct_fee_sheet/new.php"
  onsubmit="return validate(this)">
 <span class="title"><?php xl('Fee Sheet','e'); ?></span><br>
 <input type='hidden' name='newcodes' value=''>
